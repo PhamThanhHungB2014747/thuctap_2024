@@ -1,0 +1,106 @@
+---
+# Dataset
+$schema: https://schemas.opendatacube.org/dataset
+id: ca547a79-e9a8-5759-9f2d-6efd9ca4248d
+
+label: LC08_L2SP_154074_20230501_20230509_02_T1_ST
+product:
+  name: ls8_st
+
+location: file:///root/LC08_L2SP_154074_20230501_20230509_02_T1/LC08_L2SP_154074_20230501_20230509_02_T1_ST_stac.json
+
+crs: epsg:32640
+geometry:
+  type: Polygon
+  coordinates: [[[1.76175e+05, -2.124165e+06], [1.36995e+05, -2.316255e+06], [3.20745e+05,
+        -2.353605e+06], [3.59685e+05, -2.161635e+06], [1.76175e+05, -2.124165e+06]]]
+grids:
+  default:
+    shape: [7691, 7581]
+    transform: [3.e+01, 0.e+00, 1.35285e+05, 0.e+00, -3.e+01, -2.123685e+06]
+
+properties:
+  accuracy:geometric_rmse: 4.1e+00
+  accuracy:geometric_x_bias: 0
+  accuracy:geometric_x_stddev: 2.273e+00
+  accuracy:geometric_y_bias: 0
+  accuracy:geometric_y_stddev: 3.412e+00
+  card4l:specification: ST
+  card4l:specification_version: '5.0'
+  datetime: '2023-05-01T06:21:19.170380Z'
+  eo:cloud_cover: 1.22e+00
+  eo:constellation: Landsat
+  eo:instrument: OLI_TIRS
+  eo:off_nadir: 0
+  eo:platform: LANDSAT_8
+  eo:sun_azimuth: 4.156087426e+01
+  eo:sun_elevation: 4.44475802e+01
+  landsat:cloud_cover_land: 3.05e+00
+  landsat:collection_category: T1
+  landsat:collection_number: '02'
+  landsat:correction: L2SP
+  landsat:rmse: 4.1e+00
+  landsat:rmse_x: 2.273e+00
+  landsat:rmse_y: 3.412e+00
+  landsat:scene_id: LC81540742023121LGN00
+  landsat:wrs_path: '154'
+  landsat:wrs_row: '074'
+  landsat:wrs_type: '2'
+  odc:file_format: GeoTIFF
+  odc:processing_datetime: '2023-05-01T06:21:19.170380Z'
+  odc:product: ls8_st
+  odc:region_code: '154074'
+  proj:epsg: 32640
+  proj:shape:
+  - 7691
+  - 7581
+  proj:transform:
+  - 3.e+01
+  - 0.e+00
+  - 1.35285e+05
+  - 0.e+00
+  - -3.e+01
+  - -2.123685e+06
+
+measurements:
+  ST_QA:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_QA.TIF
+  ST_B10:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_B10.TIF
+  ST_DRAD:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_DRAD.TIF
+  ST_EMIS:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_EMIS.TIF
+  ST_EMSD:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_EMSD.TIF
+  ST_TRAD:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_TRAD.TIF
+  ST_URAD:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_URAD.TIF
+  QA_PIXEL:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_QA_PIXEL.TIF
+  ST_ATRAN:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_ATRAN.TIF
+  ST_CDIST:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ST_CDIST.TIF
+  QA_RADSAT:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_QA_RADSAT.TIF
+
+accessories:
+  index:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1
+  ANG.txt:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_ANG.txt
+  MTL.txt:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_MTL.txt
+  MTL.xml:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_MTL.xml
+  MTL.json:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_MTL.json
+  thumbnail:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_thumb_small.jpeg
+  reduced_resolution_browse:
+    path: LC08_L2SP_154074_20230501_20230509_02_T1_thumb_large.jpeg
+
+lineage: {}
+...

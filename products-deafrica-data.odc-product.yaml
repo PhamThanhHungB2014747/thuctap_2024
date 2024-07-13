@@ -1,0 +1,5219 @@
+---
+# Product alos_palsar_mosaic
+# url: https://explorer.digitalearth.africa/products/alos_palsar_mosaic.odc-product.yaml
+name: alos_palsar_mosaic
+metadata_type: eo3
+description: ALOS/PALSAR and ALOS-2/PALSAR-2 annual mosaic tiles generated for use
+  in the Data Cube - 25m pixel spacing, WGS84. These tiles are derived from the orignal
+  JAXA mosaics with conversion to GeoTIFF.
+metadata:
+  product:
+    name: alos_palsar_mosaic
+measurements:
+- name: hh
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - hh
+- name: hv
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - hv
+- name: date
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - date
+- name: linci
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - local incidence angle
+  - linci
+  - incidence
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mask
+  flags_definition:
+    category:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no_data
+        '50': water
+        '100': lay_over
+        '150': shadowing
+        '255': land
+      description: Mask image as provided by JAXA - Ocean and water , lay over, shadowing,
+        land.
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.22222222222e-04
+    longitude: 2.22222222222e-04
+...
+---
+# Product cci_landcover
+# url: https://explorer.digitalearth.africa/products/cci_landcover.odc-product.yaml
+name: cci_landcover
+license: CC-BY-4.0
+metadata_type: eo3
+description: ESA Climate Change Initiative Land Cover
+metadata:
+  product:
+    name: cci_landcover
+measurements:
+- name: classification
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - class
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '10': cropland, rainfed
+        '11': cropland, rainfed, herbaceous cover
+        '12': cropland, rainfed, tree or shrub cover
+        '20': cropland, irrigated or post-flooding
+        '30': mosaic cropland/natural vegetation
+        '40': mosaic natural vegetation/cropland
+        '50': tree cover, broadleaved, evergreen, closed to open
+        '60': tree cover, broadleaved, deciduous, closed to open
+        '61': tree cover, broadleaved, deciduous, closed
+        '62': tree cover, broadleaved, deciduous, open
+        '70': tree cover, needleleaved, evergreen, closed to open
+        '71': tree cover, needleleaved, evergreen, closed
+        '72': tree cover, needleleaved, evergreen, open
+        '80': tree cover, needleleaved, deciduous, closed to open
+        '81': tree cover, needleleaved, deciduous, closed
+        '82': tree cover, needleleaved, deciduous, open
+        '90': tree cover, mixed leaf type
+        '100': mosaic tree and shrub/herbaceous cover
+        '110': mosaic herbaceous cover/tree and shrub
+        '120': shrubland
+        '121': shrubland, evergreen
+        '122': shrubland, deciduous
+        '130': grassland
+        '140': lichens and mosses
+        '150': sparse vegetation
+        '151': sparse tree
+        '152': sparse shrub
+        '153': sparse herbaceous cover
+        '160': tree cover, flooded, fresh or brakish water
+        '170': tree cover, flooded, saline water
+        '180': shrub or herbaceous cover, flooded, fresh/saline/brakish water
+        '190': urban areas
+        '200': bare areas
+        '201': consolidated bare areas
+        '202': unconsolidated bare areas
+        '210': water bodies
+        '220': permanent snow and ice
+      description: LCCS Class
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.7777777777777783e-03
+    longitude: 2.7777777777777783e-03
+...
+---
+# Product cgls_landcover
+# url: https://explorer.digitalearth.africa/products/cgls_landcover.odc-product.yaml
+name: cgls_landcover
+license: CC-BY-4.0
+metadata_type: eo3
+description: Copernicus Global Land Service, Land Use/Land Cover at 100 m
+metadata:
+  product:
+    name: cgls_landcover
+measurements:
+- name: classification
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - class
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no input data available
+        '20': shrubs
+        '30': herbaceous vegetation
+        '40': cultivated and managed vegetation or agriculture
+        '50': urban or built up
+        '60': bare or sparse vegetation
+        '70': snow and ice
+        '80': permanent water bodies
+        '90': herbaceous wetland
+        '100': moss and lichen
+        '111': closed forest, evergreen needle leaf
+        '112': closed forest, evergreen broad leaf
+        '113': closed forest, deciduous needle leaf
+        '114': closed forest, deciduous broad leaf
+        '115': closed forest, mixed
+        '116': closed forest, unknown
+        '121': open forest, evergreen needle leaf
+        '122': open forest, evergreen broad leaf
+        '123': open forest, deciduous needle leaf
+        '124': open forest, deciduous broad leaf
+        '125': open forest, mixed
+        '126': open forest, unknown
+        '200': open sea
+      description: Land Use/Land Cover class
+- name: forest_type
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases: []
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': unknown
+        '1': evergreen needle leaf forest
+        '2': evergreen broad leaf forest
+        '3': deciduous needle leaf
+        '4': deciduous broad leaf
+        '5': mixed
+      description: Land Use/Land Cover class
+- name: classification_probability
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - prob
+- name: bare_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - bare
+- name: builtup_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - builtup
+- name: crops_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - crops
+- name: grass_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - grass
+- name: mosslichen_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - mosslichen
+- name: permanentwater_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - permanentwater
+- name: seasonalwater_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - seasonalwater
+- name: shrub_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - shrub
+- name: snow_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - snow
+- name: tree_cover_fraction
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - tree
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -9.920634920634888e-04
+    longitude: 9.920634920634888e-04
+...
+---
+# Product crop_mask
+# url: https://explorer.digitalearth.africa/products/crop_mask.odc-product.yaml
+name: crop_mask
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map produced by Digital Earth Africa.
+metadata:
+  product:
+    name: crop_mask
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_central
+# url: https://explorer.digitalearth.africa/products/crop_mask_central.odc-product.yaml
+name: crop_mask_central
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Central Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_central
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_eastern
+# url: https://explorer.digitalearth.africa/products/crop_mask_eastern.odc-product.yaml
+name: crop_mask_eastern
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Eastern Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_eastern
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_indian_ocean
+# url: https://explorer.digitalearth.africa/products/crop_mask_indian_ocean.odc-product.yaml
+name: crop_mask_indian_ocean
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Indian Ocean Africa produced by Digital
+  Earth Africa.
+metadata:
+  product:
+    name: crop_mask_indian_ocean
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_northern
+# url: https://explorer.digitalearth.africa/products/crop_mask_northern.odc-product.yaml
+name: crop_mask_northern
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Northern Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_northern
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_sahel
+# url: https://explorer.digitalearth.africa/products/crop_mask_sahel.odc-product.yaml
+name: crop_mask_sahel
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Sahel Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_sahel
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_southeast
+# url: https://explorer.digitalearth.africa/products/crop_mask_southeast.odc-product.yaml
+name: crop_mask_southeast
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Southeast Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_southeast
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_southern
+# url: https://explorer.digitalearth.africa/products/crop_mask_southern.odc-product.yaml
+name: crop_mask_southern
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Southern Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_southern
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product crop_mask_western
+# url: https://explorer.digitalearth.africa/products/crop_mask_western.odc-product.yaml
+name: crop_mask_western
+license: CC-BY-4.0
+metadata_type: eo3
+description: Annual cropland extent map for Western Africa produced by Digital Earth
+  Africa.
+metadata:
+  product:
+    name: crop_mask_western
+measurements:
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_mask
+  - MASK
+- name: prob
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - crop_prob
+  - PROB
+- name: filtered
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mode
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product dem_cop_30
+# url: https://explorer.digitalearth.africa/products/dem_cop_30.odc-product.yaml
+name: dem_cop_30
+metadata_type: eo3
+description: Copernicus DEM 30 m
+metadata:
+  product:
+    name: dem_cop_30
+measurements:
+- name: elevation
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.777777777777778e-04
+    longitude: 2.777777777777778e-04
+...
+---
+# Product dem_cop_90
+# url: https://explorer.digitalearth.africa/products/dem_cop_90.odc-product.yaml
+name: dem_cop_90
+metadata_type: eo3
+description: Copernicus DEM 90 m
+metadata:
+  product:
+    name: dem_cop_90
+measurements:
+- name: elevation
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -8.333333333333334e-04
+    longitude: 8.333333333333334e-04
+...
+---
+# Product dem_srtm
+# url: https://explorer.digitalearth.africa/products/dem_srtm.odc-product.yaml
+name: dem_srtm
+license: CC-BY-4.0
+metadata_type: eo3
+description: 1 second elevation model
+metadata:
+  product:
+    name: dem_srtm
+measurements:
+- name: elevation
+  dtype: int16
+  units: metre
+  nodata: -3.2768e+04
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.7777777778e-04
+    longitude: 2.7777777778e-04
+...
+---
+# Product dem_srtm_deriv
+# url: https://explorer.digitalearth.africa/products/dem_srtm_deriv.odc-product.yaml
+name: dem_srtm_deriv
+license: CC-BY-4.0
+metadata_type: eo3
+description: 1 second elevation model derivatives
+metadata:
+  product:
+    name: dem_srtm_deriv
+measurements:
+- name: mrvbf
+  dtype: int16
+  units: '1'
+  nodata: -3.2768e+04
+- name: mrrtf
+  dtype: int16
+  units: '1'
+  nodata: -3.2768e+04
+- name: slope
+  dtype: float32
+  units: '1'
+  nodata: -9.999e+03
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product esa_worldcover
+# url: https://explorer.digitalearth.africa/products/esa_worldcover.odc-product.yaml
+name: esa_worldcover
+metadata_type: eo3
+description: ESA World Cover, global 10 m land use/land cover data from 2020.
+metadata:
+  product:
+    name: esa_worldcover
+measurements:
+- name: classification
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '10': tree cover
+        '20': shrubland
+        '30': grassland
+        '40': cropland
+        '50': built up
+        '60': bare/sparse vegetation
+        '70': snow and ice
+        '80': permanent water bodies
+        '90': herbaceous wetland
+        '95': mangroves
+        '100': moss and lichen
+      description: Land Use/Land Cover class
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -8.333333333333333e-05
+    longitude: 8.333333333333333e-05
+...
+---
+# Product esa_worldcover_2020
+# url: https://explorer.digitalearth.africa/products/esa_worldcover_2020.odc-product.yaml
+name: esa_worldcover_2020
+metadata_type: eo3
+description: ESA World Cover, global 10 m land use/land cover data from 2020.
+metadata:
+  product:
+    name: esa_worldcover_2020
+measurements:
+- name: classification
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '10': tree cover
+        '20': shrubland
+        '30': grassland
+        '40': cropland
+        '50': built up
+        '60': bare/sparse vegetation
+        '70': snow and ice
+        '80': permanent water bodies
+        '90': herbaceous wetland
+        '95': mangroves
+        '100': moss and lichen
+      description: Land Use/Land Cover class
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -8.333333333333333e-05
+    longitude: 8.333333333333333e-05
+...
+---
+# Product esa_worldcover_2021
+# url: https://explorer.digitalearth.africa/products/esa_worldcover_2021.odc-product.yaml
+name: esa_worldcover_2021
+metadata_type: eo3
+description: ESA World Cover, global 10 m land use/land cover data from 2021.
+metadata:
+  product:
+    name: esa_worldcover_2021
+measurements:
+- name: classification
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '10': tree cover
+        '20': shrubland
+        '30': grassland
+        '40': cropland
+        '50': built up
+        '60': bare/sparse vegetation
+        '70': snow and ice
+        '80': permanent water bodies
+        '90': herbaceous wetland
+        '95': mangroves
+        '100': moss and lichen
+      description: Land Use/Land Cover class
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -8.333333333333333e-05
+    longitude: 8.333333333333333e-05
+...
+---
+# Product fc_ls
+# url: https://explorer.digitalearth.africa/products/fc_ls.odc-product.yaml
+name: fc_ls
+license: CC-BY-4.0
+metadata_type: eo3
+description: Landsat Fractional Cover Observations from Space
+metadata:
+  product:
+    name: fc_ls
+measurements:
+- name: bs
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - bare
+- name: pv
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - green_veg
+- name: npv
+  dtype: uint8
+  units: percent
+  nodata: 255
+  aliases:
+  - dead_veg
+- name: ue
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - err
+...
+---
+# Product fc_ls_summary_annual
+# url: https://explorer.digitalearth.africa/products/fc_ls_summary_annual.odc-product.yaml
+name: fc_ls_summary_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: DE Africa Landsat Fractional Cover Percentiles
+metadata:
+  product:
+    name: fc_ls_summary_annual
+measurements:
+- name: pv_pc_10
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: pv_pc_50
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: pv_pc_90
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: bs_pc_10
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: bs_pc_50
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: bs_pc_90
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: npv_pc_10
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: npv_pc_50
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: npv_pc_90
+  dtype: uint8
+  units: percent
+  nodata: 255
+- name: count_valid
+  dtype: int16
+  units: '1'
+  nodata: 255
+- name: qa
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  flags_definition:
+    qa:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': insufficient observations wet
+        '1': insufficient observations dry
+        '2': sufficient observations
+      description: Quality Assurance band for Mangrove Canopy Cover
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product gm_ls5_ls7_annual
+# url: https://explorer.digitalearth.africa/products/gm_ls5_ls7_annual.odc-product.yaml
+name: gm_ls5_ls7_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Landsat 5 and Landsat 7
+metadata:
+  product:
+    name: gm_ls5_ls7_annual
+measurements:
+- name: SR_B1
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_1
+  - blue
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - green
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - red
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - nir
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product gm_ls5_ls7_annual_lowres
+# url: https://explorer.digitalearth.africa/products/gm_ls5_ls7_annual_lowres.odc-product.yaml
+name: gm_ls5_ls7_annual_lowres
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Landsat 5 and Landsat 7. Low resolution version used for visualisations.
+metadata:
+  product:
+    name: gm_ls5_ls7_annual_lowres
+measurements:
+- name: SR_B1
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_1
+  - blue
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - green
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - red
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - nir
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 120
+    y: -120
+...
+---
+# Product gm_ls8_annual
+# url: https://explorer.digitalearth.africa/products/gm_ls8_annual.odc-product.yaml
+name: gm_ls8_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Landsat 8
+metadata:
+  product:
+    name: gm_ls8_annual
+measurements:
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - blue
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - green
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - red
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - nir
+- name: SR_B6
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_6
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product gm_ls8_annual_lowres
+# url: https://explorer.digitalearth.africa/products/gm_ls8_annual_lowres.odc-product.yaml
+name: gm_ls8_annual_lowres
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Landsat 8. Low resolution version used for visualisations.
+metadata:
+  product:
+    name: gm_ls8_annual_lowres
+measurements:
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - blue
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - green
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - red
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - nir
+- name: SR_B6
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_6
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 120
+    y: -120
+...
+---
+# Product gm_ls8_ls9_annual
+# url: https://explorer.digitalearth.africa/products/gm_ls8_ls9_annual.odc-product.yaml
+name: gm_ls8_ls9_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Landsat 8 and Landsat 9
+metadata:
+  product:
+    name: gm_ls8_ls9_annual
+measurements:
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - blue
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - green
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - red
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - nir
+- name: SR_B6
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_6
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product gm_ls8_ls9_annual_lowres
+# url: https://explorer.digitalearth.africa/products/gm_ls8_ls9_annual_lowres.odc-product.yaml
+name: gm_ls8_ls9_annual_lowres
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Landsat 8 and Landsat 9. Low resolution version used for visualisations.
+metadata:
+  product:
+    name: gm_ls8_ls9_annual_lowres
+measurements:
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - blue
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - green
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - red
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - nir
+- name: SR_B6
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_6
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 120
+    y: -120
+...
+---
+# Product gm_s2_annual
+# url: https://explorer.digitalearth.africa/products/gm_s2_annual.odc-product.yaml
+name: gm_s2_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Geometric Median and Median Absolute Deviations,
+  Sentinel-2
+metadata:
+  product:
+    name: gm_s2_annual
+measurements:
+- name: B02
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - blue
+- name: B03
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - green
+- name: B04
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_04
+  - red
+- name: B05
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_05
+  - red_edge_1
+- name: B06
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_06
+  - red_edge_2
+- name: B07
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_07
+  - red_edge_3
+- name: B08
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_08
+  - nir
+  - nir_1
+- name: B8A
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_8a
+  - nir_narrow
+  - nir_2
+- name: B11
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_11
+  - swir_1
+  - swir_16
+- name: B12
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_12
+  - swir_2
+  - swir_22
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product gm_s2_annual_lowres
+# url: https://explorer.digitalearth.africa/products/gm_s2_annual_lowres.odc-product.yaml
+name: gm_s2_annual_lowres
+metadata_type: eo3
+description: Annual Geometric Median, Sentinel-2 - Low Resolution mosaic
+metadata:
+  product:
+    name: gm_s2_annual_lowres
+measurements:
+- name: B02
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - blue
+- name: B03
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - green
+- name: B04
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_04
+  - red
+- name: B05
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_05
+  - red_edge_1
+- name: B06
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_06
+  - red_edge_2
+- name: B07
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_07
+  - red_edge_3
+- name: B08
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_08
+  - nir
+  - nir_1
+- name: B8A
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_8a
+  - nir_narrow
+  - nir_2
+- name: B11
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_11
+  - swir_1
+  - swir_16
+- name: B12
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_12
+  - swir_2
+  - swir_22
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - SDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+...
+---
+# Product gm_s2_rolling
+# url: https://explorer.digitalearth.africa/products/gm_s2_rolling.odc-product.yaml
+name: gm_s2_rolling
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance 3 Monthly Rolling Geometric Median and Median Absolute
+  Deviations, Sentinel-2
+metadata:
+  product:
+    name: gm_s2_rolling
+measurements:
+- name: B02
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - blue
+- name: B03
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - green
+- name: B04
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_04
+  - red
+- name: B05
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_05
+  - red_edge_1
+- name: B06
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_06
+  - red_edge_2
+- name: B07
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_07
+  - red_edge_3
+- name: B08
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_08
+  - nir
+  - nir_1
+- name: B8A
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_8a
+  - nir_narrow
+  - nir_2
+- name: B11
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_11
+  - swir_1
+  - swir_16
+- name: B12
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_12
+  - swir_2
+  - swir_22
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product gm_s2_semiannual
+# url: https://explorer.digitalearth.africa/products/gm_s2_semiannual.odc-product.yaml
+name: gm_s2_semiannual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Semiannual Geometric Median and Median Absolute Deviations,
+  Sentinel-2
+metadata:
+  product:
+    name: gm_s2_semiannual
+measurements:
+- name: B02
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - blue
+- name: B03
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - green
+- name: B04
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_04
+  - red
+- name: B05
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_05
+  - red_edge_1
+- name: B06
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_06
+  - red_edge_2
+- name: B07
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_07
+  - red_edge_3
+- name: B08
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_08
+  - nir
+  - nir_1
+- name: B8A
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_8a
+  - nir_narrow
+  - nir_2
+- name: B11
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_11
+  - swir_1
+  - swir_16
+- name: B12
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_12
+  - swir_2
+  - swir_22
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 10
+    y: -10
+...
+---
+# Product gm_s2_semiannual_lowres
+# url: https://explorer.digitalearth.africa/products/gm_s2_semiannual_lowres.odc-product.yaml
+name: gm_s2_semiannual_lowres
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Semiannual Geometric Median and Median Absolute Deviations,
+  Sentinel-2. Low resolution version used for visualisations.
+metadata:
+  product:
+    name: gm_s2_semiannual_lowres
+measurements:
+- name: B02
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - blue
+- name: B03
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - green
+- name: B04
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_04
+  - red
+- name: B05
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_05
+  - red_edge_1
+- name: B06
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_06
+  - red_edge_2
+- name: B07
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_07
+  - red_edge_3
+- name: B08
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_08
+  - nir
+  - nir_1
+- name: B8A
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_8a
+  - nir_narrow
+  - nir_2
+- name: B11
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_11
+  - swir_1
+  - swir_16
+- name: B12
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_12
+  - swir_2
+  - swir_22
+- name: SMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - smad
+  - sdev
+  - SDEV
+- name: EMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - emad
+  - edev
+  - EDEV
+- name: BCMAD
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - bcmad
+  - bcdev
+  - BCDEV
+- name: COUNT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 120
+    y: -120
+...
+---
+# Product gmw
+# url: https://explorer.digitalearth.africa/products/gmw.odc-product.yaml
+name: gmw
+license: CC-BY-4.0
+metadata_type: eo3
+description: Global Mangrove Watch data sourced from the UN Environment Program at
+  https://data.unep-wcmc.org/datasets/45
+metadata:
+  product:
+    name: gmw
+measurements:
+- name: mangrove
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - classification
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.e-04
+    longitude: 2.e-04
+...
+---
+# Product io_lulc
+# url: https://explorer.digitalearth.africa/products/io_lulc.odc-product.yaml
+name: io_lulc
+metadata_type: eo3
+description: Impact Observatory (ESRI) Landcover Classification 9 Class
+metadata:
+  product:
+    name: io_lulc
+measurements:
+- name: data
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - classification
+  flags_definition:
+    data:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '1': water
+        '2': trees
+        '3': not used
+        '4': flooded vegetation
+        '5': crops
+        '6': not used
+        '7': built area
+        '8': bare ground
+        '9': snow/ice
+        '10': clouds
+        '11': rangeland
+      description: Land Use/Land Cover class
+...
+---
+# Product isda_soil_bedrock_depth
+# url: https://explorer.digitalearth.africa/products/isda_soil_bedrock_depth.odc-product.yaml
+name: isda_soil_bedrock_depth
+license: CC-BY-4.0
+metadata_type: eo3
+description: Soil bedrock depth predictions made by iSDA Africa
+metadata:
+  product:
+    name: isda_soil_bedrock_depth
+measurements:
+- name: mean_0_200
+  dtype: float32
+  units: cm
+  nodata: NaN
+  aliases:
+  - MEAN_0_200
+- name: stdev_0_200
+  dtype: float32
+  units: cm
+  nodata: NaN
+  aliases:
+  - STDEV_0_200
+storage:
+  crs: EPSG:3857
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product isda_soil_bulk_density
+# url: https://explorer.digitalearth.africa/products/isda_soil_bulk_density.odc-product.yaml
+name: isda_soil_bulk_density
+license: CC-BY-4.0
+metadata_type: eo3
+description: Soil bulk density predictions made by iSDA Africa
+metadata:
+  product:
+    name: isda_soil_bulk_density
+measurements:
+- name: mean_0_20
+  dtype: float32
+  units: g/cc
+  nodata: NaN
+  aliases:
+  - MEAN_0_20
+  flags_definition:
+    back-transformation: x/100
+- name: mean_20_50
+  dtype: float32
+  units: g/cc
+  nodata: NaN
+  aliases:
+  - MEAN_20_50
+  flags_definition:
+    back-transformation: x/100
+- name: stdev_0_20
+  dtype: float32
+  units: g/cc
+  nodata: NaN
+  aliases:
+  - STDEV_0_20
+  flags_definition:
+    back-transformation: x/100
+- name: stdev_20_50
+  dtype: float32
+  units: g/cc
+  nodata: NaN
+  aliases:
+  - STDEV_20_50
+  flags_definition:
+    back-transformation: x/100
+storage:
+  crs: EPSG:3857
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product isda_soil_carbon_total
+# url: https://explorer.digitalearth.africa/products/isda_soil_carbon_total.odc-product.yaml
+name: isda_soil_carbon_total
+license: CC-BY-4.0
+metadata_type: eo3
+description: Soil total carbon predictions made by iSDA Africa
+metadata:
+  product:
+    name: isda_soil_carbon_total
+measurements:
+- name: mean_0_20
+  dtype: float32
+  units: g/kg
+  nodata: NaN
+  aliases:
+  - MEAN_0_20
+  flags_definition:
+    back-transformation: expm1(x/10)
+- name: mean_20_50
+  dtype: float32
+  units: g/kg
+  nodata: NaN
+  aliases:
+  - MEAN_20_50
+  flags_definition:
+    back-transformation: expm1(x/10)
+- name: stdev_0_20
+  dtype: float32
+  units: g/kg
+  nodata: NaN
+  aliases:
+  - STDEV_0_20
+  flags_definition:
+    back-transformation: expm1(x/10)
+- name: stdev_20_50
+  dtype: float32
+  units: g/kg
+  nodata: NaN
+  aliases:
+  - STDEV_20_50
+  flags_definition:
+    back-transformation: expm1(x/10)
+storage:
+  crs: EPSG:3857
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product isda_soil_clay_content
+# url: https://explorer.digitalearth.africa/products/isda_soil_clay_content.odc-product.yaml
+name: isda_soil_clay_content
+license: CC-BY-4.0
+metadata_type: eo3
+description: Soil clay content predictions made by iSDA Africa
+metadata:
+  product:
+    name: isda_soil_clay_content
+measurements:
+- name: mean_0_20
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - MEAN_0_20
+- name: mean_20_50
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - MEAN_20_50
+- name: stdev_0_20
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - STDEV_0_20
+- name: stdev_20_50
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - STDEV_20_50
+storage:
+  crs: EPSG:3857
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product isda_soil_sand_content
+# url: https://explorer.digitalearth.africa/products/isda_soil_sand_content.odc-product.yaml
+name: isda_soil_sand_content
+license: CC-BY-4.0
+metadata_type: eo3
+description: Soil sand content predictions made by iSDA Africa
+metadata:
+  product:
+    name: isda_soil_sand_content
+measurements:
+- name: mean_0_20
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - MEAN_0_20
+- name: mean_20_50
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - MEAN_20_50
+- name: stdev_0_20
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - STDEV_0_20
+- name: stdev_20_50
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - STDEV_20_50
+storage:
+  crs: EPSG:3857
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product isda_soil_silt_content
+# url: https://explorer.digitalearth.africa/products/isda_soil_silt_content.odc-product.yaml
+name: isda_soil_silt_content
+license: CC-BY-4.0
+metadata_type: eo3
+description: Soil silt content predictions made by iSDA Africa
+metadata:
+  product:
+    name: isda_soil_silt_content
+measurements:
+- name: mean_0_20
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - MEAN_0_20
+- name: mean_20_50
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - MEAN_20_50
+- name: stdev_0_20
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - STDEV_0_20
+- name: stdev_20_50
+  dtype: float32
+  units: percent
+  nodata: NaN
+  aliases:
+  - STDEV_20_50
+storage:
+  crs: EPSG:3857
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product jers_sar_mosaic
+# url: https://explorer.digitalearth.africa/products/jers_sar_mosaic.odc-product.yaml
+name: jers_sar_mosaic
+metadata_type: eo3
+description: JERS-1 SAR annual mosaic tiles generated for use in the Data Cube 25m
+  pixel spacing, WGS84. These tiles are derived from the orignal JAXA mosaics with
+  conversion to GeoTIFF.
+metadata:
+  product:
+    name: jers_sar_mosaic
+measurements:
+- name: hh
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - hh
+- name: date
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - date
+- name: linci
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - local incidence angle
+  - linci
+  - incidence
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mask
+  flags_definition:
+    category:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no_data
+        '50': water
+        '100': lay_over
+        '150': shadowing
+        '255': land
+      description: Mask image as provided by JAXA - Ocean and water , lay over, shadowing,
+        land.
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.22222222222e-04
+    longitude: 2.22222222222e-04
+...
+---
+# Product ls5_sr
+# url: https://explorer.digitalearth.africa/products/ls5_sr.odc-product.yaml
+name: ls5_sr
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 5 Collection 2 Level-2 Surface Reflectance
+metadata:
+  product:
+    name: ls5_sr
+measurements:
+- name: SR_B1
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_1
+  - blue
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - green
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - red
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - nir
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    dropped_pixel:
+      bits: 9
+      values:
+        '0': false
+        '1': true
+    nir_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    tir_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_6_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+- name: SR_ATMOS_OPACITY
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - atmos_opacity
+- name: SR_CLOUD_QA
+  dtype: uint8
+  units: bit_index
+  nodata: 0
+  aliases:
+  - cloud_qa
+  flags_definition:
+    snow:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    water:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    adjacent_to_cloud:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    dark_dense_vegetation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+...
+---
+# Product ls5_st
+# url: https://explorer.digitalearth.africa/products/ls5_st.odc-product.yaml
+name: ls5_st
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 5 Collection 2 Level-2 Surface Temperature
+metadata:
+  product:
+    name: ls5_st
+measurements:
+- name: ST_B6
+  dtype: uint16
+  units: Kelvin
+  nodata: 0
+  aliases:
+  - band_6
+  - st
+  - surface_temperature
+- name: ST_TRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - trad
+  - thermal_radiance
+- name: ST_URAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - urad
+  - upwell_radiance
+- name: ST_DRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - drad
+  - downwell_radiance
+- name: ST_ATRAN
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - atran
+  - atmospheric_transmittance
+- name: ST_EMIS
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emis
+  - emissivity
+- name: ST_EMSD
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emsd
+  - emissivity_stddev
+- name: ST_CDIST
+  dtype: int16
+  units: Kilometers
+  nodata: -9999
+  aliases:
+  - cdist
+  - cloud_distance
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    dropped_pixel:
+      bits: 9
+      values:
+        '0': false
+        '1': true
+    nir_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    tir_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_6_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+- name: ST_QA
+  dtype: int16
+  units: Kelvin
+  nodata: -9999
+  aliases:
+  - st_qa
+  - surface_temperature_quality
+...
+---
+# Product ls7_sr
+# url: https://explorer.digitalearth.africa/products/ls7_sr.odc-product.yaml
+name: ls7_sr
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 7 Collection 2 Level-2 Surface Reflectance
+metadata:
+  product:
+    name: ls7_sr
+measurements:
+- name: SR_B1
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_1
+  - blue
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - green
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - red
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - nir
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    dropped_pixel:
+      bits: 9
+      values:
+        '0': false
+        '1': true
+    nir_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    tir_h_saturation:
+      bits: 8
+      values:
+        '0': false
+        '1': true
+    tir_l_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    band_6H_saturation:
+      bits: 8
+      values:
+        '0': false
+        '1': true
+    band_6L_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+- name: SR_ATMOS_OPACITY
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - atmos_opacity
+- name: SR_CLOUD_QA
+  dtype: uint8
+  units: bit_index
+  nodata: 0
+  aliases:
+  - cloud_qa
+  flags_definition:
+    snow:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    water:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    adjacent_to_cloud:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    dark_dense_vegetation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+...
+---
+# Product ls7_st
+# url: https://explorer.digitalearth.africa/products/ls7_st.odc-product.yaml
+name: ls7_st
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 7 Collection 2 Level-2 Surface Temperature
+metadata:
+  product:
+    name: ls7_st
+measurements:
+- name: ST_B6
+  dtype: uint16
+  units: Kelvin
+  nodata: 0
+  aliases:
+  - band_6
+  - st
+  - surface_temperature
+- name: ST_TRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - trad
+  - thermal_radiance
+- name: ST_URAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - urad
+  - upwell_radiance
+- name: ST_DRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - drad
+  - downwell_radiance
+- name: ST_ATRAN
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - atran
+  - atmospheric_transmittance
+- name: ST_EMIS
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emis
+  - emissivity
+- name: ST_EMSD
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emsd
+  - emissivity_stddev
+- name: ST_CDIST
+  dtype: int16
+  units: Kilometers
+  nodata: -9999
+  aliases:
+  - cdist
+  - cloud_distance
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    dropped_pixel:
+      bits: 9
+      values:
+        '0': false
+        '1': true
+    nir_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    tir_h_saturation:
+      bits: 8
+      values:
+        '0': false
+        '1': true
+    tir_l_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    band_6H_saturation:
+      bits: 8
+      values:
+        '0': false
+        '1': true
+    band_6L_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+- name: ST_QA
+  dtype: int16
+  units: Kelvin
+  nodata: -9999
+  aliases:
+  - st_qa
+  - surface_temperature_quality
+...
+---
+# Product ls8_sr
+# url: https://explorer.digitalearth.africa/products/ls8_sr.odc-product.yaml
+name: ls8_sr
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 8 Collection 2 Level-2 Surface Reflectance
+metadata:
+  product:
+    name: ls8_sr
+measurements:
+- name: SR_B1
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_1
+  - coastal_aerosol
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - blue
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - green
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - red
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - nir
+- name: SR_B6
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_6
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    cirrus:
+      bits: 2
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    cirrus_confidence:
+      bits:
+      - 14
+      - 15
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    nir_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_6_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    terrain_occlusion:
+      bits: 11
+      values:
+        '0': false
+        '1': true
+- name: SR_QA_AEROSOL
+  dtype: uint8
+  units: bit_index
+  nodata: 1
+  aliases:
+  - qa_aerosol
+  - aerosol_qa
+  flags_definition:
+    water:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    aerosol_level:
+      bits:
+      - 6
+      - 7
+      values:
+        '0': climatology
+        '1': low
+        '2': medium
+        '3': high
+    interpolated_aerosol:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    valid_aerosol_retrieval:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+...
+---
+# Product ls8_st
+# url: https://explorer.digitalearth.africa/products/ls8_st.odc-product.yaml
+name: ls8_st
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 8 Collection 2 Level-2 Surface Temperature
+metadata:
+  product:
+    name: ls8_st
+measurements:
+- name: ST_B10
+  dtype: uint16
+  units: Kelvin
+  nodata: 0
+  aliases:
+  - band_10
+  - st
+  - surface_temperature
+- name: ST_TRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - trad
+  - thermal_radiance
+- name: ST_URAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - urad
+  - upwell_radiance
+- name: ST_DRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - drad
+  - downwell_radiance
+- name: ST_ATRAN
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - atran
+  - atmospheric_transmittance
+- name: ST_EMIS
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emis
+  - emissivity
+- name: ST_EMSD
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emsd
+  - emissivity_stddev
+- name: ST_CDIST
+  dtype: int16
+  units: Kilometers
+  nodata: -9999
+  aliases:
+  - cdist
+  - cloud_distance
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    cirrus:
+      bits: 2
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    cirrus_confidence:
+      bits:
+      - 14
+      - 15
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    nir_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_6_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    terrain_occlusion:
+      bits: 11
+      values:
+        '0': false
+        '1': true
+- name: ST_QA
+  dtype: int16
+  units: Kelvin
+  nodata: -9999
+  aliases:
+  - st_qa
+  - surface_temperature_quality
+...
+---
+# Product ls9_sr
+# url: https://explorer.digitalearth.africa/products/ls9_sr.odc-product.yaml
+name: ls9_sr
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 9 Collection 2 Level-2 Surface Reflectance
+metadata:
+  product:
+    name: ls9_sr
+measurements:
+- name: SR_B1
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_1
+  - coastal_aerosol
+- name: SR_B2
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_2
+  - blue
+- name: SR_B3
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_3
+  - green
+- name: SR_B4
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_4
+  - red
+- name: SR_B5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_5
+  - nir
+- name: SR_B6
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_6
+  - swir_1
+- name: SR_B7
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_7
+  - swir_2
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    cirrus:
+      bits: 2
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    cirrus_confidence:
+      bits:
+      - 14
+      - 15
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    nir_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_6_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    terrain_occlusion:
+      bits: 11
+      values:
+        '0': false
+        '1': true
+- name: SR_QA_AEROSOL
+  dtype: uint8
+  units: bit_index
+  nodata: 1
+  aliases:
+  - qa_aerosol
+  - aerosol_qa
+  flags_definition:
+    water:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    aerosol_level:
+      bits:
+      - 6
+      - 7
+      values:
+        '0': climatology
+        '1': low
+        '2': medium
+        '3': high
+    interpolated_aerosol:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    valid_aerosol_retrieval:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+...
+---
+# Product ls9_st
+# url: https://explorer.digitalearth.africa/products/ls9_st.odc-product.yaml
+name: ls9_st
+license: CC-BY-4.0
+metadata_type: eo3
+description: USGS Landsat 9 Collection 2 Level-2 Surface Temperature
+metadata:
+  product:
+    name: ls9_st
+measurements:
+- name: ST_B10
+  dtype: uint16
+  units: Kelvin
+  nodata: 0
+  aliases:
+  - band_10
+  - st
+  - surface_temperature
+- name: ST_TRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - trad
+  - thermal_radiance
+- name: ST_URAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - urad
+  - upwell_radiance
+- name: ST_DRAD
+  dtype: int16
+  units: W/(m2.sr.μm)
+  nodata: -9999
+  aliases:
+  - drad
+  - downwell_radiance
+- name: ST_ATRAN
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - atran
+  - atmospheric_transmittance
+- name: ST_EMIS
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emis
+  - emissivity
+- name: ST_EMSD
+  dtype: int16
+  units: '1'
+  nodata: -9999
+  aliases:
+  - emsd
+  - emissivity_stddev
+- name: ST_CDIST
+  dtype: int16
+  units: Kilometers
+  nodata: -9999
+  aliases:
+  - cdist
+  - cloud_distance
+- name: QA_PIXEL
+  dtype: uint16
+  units: bit_index
+  nodata: 1
+  aliases:
+  - pq
+  - pixel_quality
+  flags_definition:
+    snow:
+      bits: 5
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    clear:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    cloud:
+      bits: 3
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    water:
+      bits: 7
+      values:
+        '0': land_or_cloud
+        '1': water
+    cirrus:
+      bits: 2
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    cloud_shadow:
+      bits: 4
+      values:
+        '0': not_high_confidence
+        '1': high_confidence
+    dilated_cloud:
+      bits: 1
+      values:
+        '0': not_dilated
+        '1': dilated
+    cloud_confidence:
+      bits:
+      - 8
+      - 9
+      values:
+        '0': none
+        '1': low
+        '2': medium
+        '3': high
+    cirrus_confidence:
+      bits:
+      - 14
+      - 15
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    snow_ice_confidence:
+      bits:
+      - 12
+      - 13
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+    cloud_shadow_confidence:
+      bits:
+      - 10
+      - 11
+      values:
+        '0': none
+        '1': low
+        '2': reserved
+        '3': high
+- name: QA_RADSAT
+  dtype: uint16
+  units: bit_index
+  nodata: 0
+  aliases:
+  - radsat
+  - radiometric_saturation
+  flags_definition:
+    nir_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    red_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    blue_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    green_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_1_saturation:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+    band_2_saturation:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+    band_3_saturation:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+    band_4_saturation:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+    band_5_saturation:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+    band_6_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    band_7_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    swir_1_saturation:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+    swir_2_saturation:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+    terrain_occlusion:
+      bits: 11
+      values:
+        '0': false
+        '1': true
+- name: ST_QA
+  dtype: int16
+  units: Kelvin
+  nodata: -9999
+  aliases:
+  - st_qa
+  - surface_temperature_quality
+...
+---
+# Product nasadem
+# url: https://explorer.digitalearth.africa/products/nasadem.odc-product.yaml
+name: nasadem
+metadata_type: eo3
+description: NASADEM from Microsoft's Planetary Computer
+metadata:
+  product:
+    name: nasadem
+measurements:
+- name: elevation
+  dtype: int16
+  units: '1'
+  nodata: -32768
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.777777777777778e-04
+    longitude: 2.777777777777778e-04
+...
+---
+# Product ndvi_anomaly
+# url: https://explorer.digitalearth.africa/products/ndvi_anomaly.odc-product.yaml
+name: ndvi_anomaly
+license: CC-BY-4.0
+metadata_type: eo3
+description: Monthly NDVI Anomalies produced by Digital Earth Africa.
+metadata:
+  product:
+    name: ndvi_anomaly
+measurements:
+- name: ndvi_mean
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - NDVI_MEAN
+- name: ndvi_std_anomaly
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - NDVI_STD_ANOMALY
+- name: clear_count
+  dtype: int8
+  units: '1'
+  nodata: 0
+  aliases:
+  - CLEAR_COUNT
+  - count
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product ndvi_climatology_ls
+# url: https://explorer.digitalearth.africa/products/ndvi_climatology_ls.odc-product.yaml
+name: ndvi_climatology_ls
+license: CC-BY-4.0
+metadata_type: eo3
+description: Monthly NDVI Climatologies produced by Digital Earth Africa.
+metadata:
+  product:
+    name: ndvi_climatology_ls
+measurements:
+- name: mean_jan
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_JAN
+  - mean_january
+- name: mean_feb
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_FEB
+  - mean_february
+- name: mean_mar
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_MAR
+  - mean_march
+- name: mean_apr
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_APR
+  - mean_april
+- name: mean_may
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_MAY
+- name: mean_jun
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_JUN
+  - mean_june
+- name: mean_jul
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_JUL
+  - mean_july
+- name: mean_aug
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_AUG
+  - mean_august
+- name: mean_sep
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_SEP
+  - mean_september
+- name: mean_oct
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_OCT
+  - mean_october
+- name: mean_nov
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_NOV
+  - mean_november
+- name: mean_dec
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - MEAN_DEC
+  - mean_december
+- name: stddev_jan
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_JAN
+  - stddev_january
+- name: stddev_feb
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_FEB
+  - stddev_feburary
+- name: stddev_mar
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_MAR
+  - stddev_march
+- name: stddev_apr
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_APR
+  - stddev_april
+- name: stddev_may
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_MAY
+- name: stddev_jun
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_JUN
+  - stddev_june
+- name: stddev_jul
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_JUL
+  - stddev_july
+- name: stddev_aug
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_AUG
+  - stddev_august
+- name: stddev_sep
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_SEP
+  - stddev_september
+- name: stddev_oct
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_OCT
+  - stddev_october
+- name: stddev_nov
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_NOV
+  - stddev_november
+- name: stddev_dec
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - STDDEV_DEC
+  - stddev_december
+- name: count_jan
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_JAN
+  - count_january
+- name: count_feb
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_FEB
+  - count_february
+- name: count_mar
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_MAR
+  - count_march
+- name: count_apr
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_APR
+  - count_april
+- name: count_may
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_MAY
+- name: count_jun
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_JUN
+  - count_june
+- name: count_jul
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_JUL
+  - count_july
+- name: count_aug
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_AUG
+  - count_august
+- name: count_sep
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_SEP
+  - count_september
+- name: count_oct
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_OCT
+  - count_october
+- name: count_nov
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_NOV
+  - count_november
+- name: count_dec
+  dtype: int16
+  units: '1'
+  nodata: -999
+  aliases:
+  - COUNT_DEC
+  - count_december
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product pc_s2_annual
+# url: https://explorer.digitalearth.africa/products/pc_s2_annual.odc-product.yaml
+name: pc_s2_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Surface Reflectance Annual Clear Pixel Count, Sentinel-2
+metadata:
+  product:
+    name: pc_s2_annual
+measurements:
+- name: total
+  dtype: uint16
+  units: '1'
+  nodata: 0
+- name: clear
+  dtype: uint16
+  units: '1'
+  nodata: 0
+- name: clear_0_5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+- name: clear_2_5
+  dtype: uint16
+  units: '1'
+  nodata: 0
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 20
+    y: -20
+...
+---
+# Product rainfall_chirps_daily
+# url: https://explorer.digitalearth.africa/products/rainfall_chirps_daily.odc-product.yaml
+name: rainfall_chirps_daily
+metadata_type: eo3
+description: Rainfall Estimates from Rain Gauge and Satellite Observations
+metadata:
+  product:
+    name: rainfall_chirps_daily
+measurements:
+- name: rainfall
+  dtype: float32
+  units: mm
+  nodata: -9999
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -5.000000074505806e-02
+    longitude: 5.000000074505806e-02
+...
+---
+# Product rainfall_chirps_monthly
+# url: https://explorer.digitalearth.africa/products/rainfall_chirps_monthly.odc-product.yaml
+name: rainfall_chirps_monthly
+metadata_type: eo3
+description: Rainfall Estimates from Rain Gauge and Satellite Observations
+metadata:
+  product:
+    name: rainfall_chirps_monthly
+measurements:
+- name: rainfall
+  dtype: float32
+  units: mm
+  nodata: -9999
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -5.000000074505806e-02
+    longitude: 5.000000074505806e-02
+...
+---
+# Product s1_rtc
+# url: https://explorer.digitalearth.africa/products/s1_rtc.odc-product.yaml
+name: s1_rtc
+license: CC-BY-4.0
+metadata_type: eo3
+description: Sentinel 1 Gamma0 normalised radar backscatter
+metadata:
+  product:
+    name: s1_rtc
+measurements:
+- name: vv
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - VV
+- name: vh
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - VH
+- name: angle
+  dtype: uint8
+  units: '1'
+  nodata: 255
+  aliases:
+  - ANGLE
+  - local_incidence_angle
+- name: area
+  dtype: float32
+  units: '1'
+  nodata: NaN
+  aliases:
+  - AREA
+  - normalised_scattering_area
+- name: mask
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - MASK
+  flags_definition:
+    qa:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '1': valid data
+        '2': invalid data
+storage:
+  crs: EPSG:4326
+  resolution:
+    latitude: -2.e-04
+    longitude: 2.e-04
+...
+---
+# Product s2_l2a
+# url: https://explorer.digitalearth.africa/products/s2_l2a.odc-product.yaml
+name: s2_l2a
+metadata_type: eo3
+description: Sentinel-2a and Sentinel-2b imagery, processed to Level 2A (Surface Reflectance)
+  and converted to Cloud Optimized GeoTIFFs
+metadata:
+  product:
+    name: s2_l2a
+measurements:
+- name: B01
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_01
+  - coastal_aerosol
+- name: B02
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_02
+  - blue
+- name: B03
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_03
+  - green
+- name: B04
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_04
+  - red
+- name: B05
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_05
+  - red_edge_1
+- name: B06
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_06
+  - red_edge_2
+- name: B07
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_07
+  - red_edge_3
+- name: B08
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_08
+  - nir
+  - nir_1
+- name: B8A
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_8a
+  - nir_narrow
+  - nir_2
+- name: B09
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_09
+  - water_vapour
+- name: B11
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_11
+  - swir_1
+  - swir_16
+- name: B12
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - band_12
+  - swir_2
+  - swir_22
+- name: SCL
+  dtype: uint8
+  units: '1'
+  nodata: 0
+  aliases:
+  - mask
+  - qa
+  flags_definition:
+    qa:
+      bits:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      values:
+        '0': no data
+        '1': saturated or defective
+        '2': dark area pixels
+        '3': cloud shadows
+        '4': vegetation
+        '5': bare soils
+        '6': water
+        '7': unclassified
+        '8': cloud medium probability
+        '9': cloud high probability
+        '10': thin cirrus
+        '11': snow or ice
+      description: Sen2Cor Scene Classification
+- name: AOT
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - aerosol_optical_thickness
+- name: WVP
+  dtype: uint16
+  units: '1'
+  nodata: 0
+  aliases:
+  - scene_average_water_vapour
+...
+---
+# Product wofs_ls
+# url: https://explorer.digitalearth.africa/products/wofs_ls.odc-product.yaml
+name: wofs_ls
+license: CC-BY-4.0
+metadata_type: eo3
+description: Historic Flood Mapping Water Observations from Space
+metadata:
+  product:
+    name: wofs_ls
+measurements:
+- name: water
+  dtype: uint8
+  units: '1'
+  nodata: 1
+  flags_definition:
+    dry:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '0': true
+      description: No water detected
+    wet:
+      bits:
+      - 7
+      - 6
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+      - 0
+      values:
+        '128': true
+      description: Clear and Wet
+    cloud:
+      bits: 6
+      values:
+        '0': false
+        '1': true
+      description: Cloudy
+    nodata:
+      bits: 0
+      values:
+        '0': false
+        '1': true
+      description: No data
+    high_slope:
+      bits: 4
+      values:
+        '0': false
+        '1': true
+      description: High slope
+    cloud_shadow:
+      bits: 5
+      values:
+        '0': false
+        '1': true
+      description: Cloud shadow
+    noncontiguous:
+      bits: 1
+      values:
+        '0': false
+        '1': true
+      description: At least one EO band is missing or saturated
+    terrain_shadow:
+      bits: 3
+      values:
+        '0': false
+        '1': true
+      description: Terrain shadow
+    water_observed:
+      bits: 7
+      values:
+        '0': false
+        '1': true
+      description: Classified as water by the decision tree
+    low_solar_angle:
+      bits: 2
+      values:
+        '0': false
+        '1': true
+      description: Low solar incidence angle
+...
+---
+# Product wofs_ls_summary_alltime
+# url: https://explorer.digitalearth.africa/products/wofs_ls_summary_alltime.odc-product.yaml
+name: wofs_ls_summary_alltime
+license: CC-BY-4.0
+metadata_type: eo3
+description: Water Observations from Space Alltime Statistics
+metadata:
+  product:
+    name: wofs_ls_summary_alltime
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...
+---
+# Product wofs_ls_summary_annual
+# url: https://explorer.digitalearth.africa/products/wofs_ls_summary_annual.odc-product.yaml
+name: wofs_ls_summary_annual
+license: CC-BY-4.0
+metadata_type: eo3
+description: Water Observations from Space Annual Statistics
+metadata:
+  product:
+    name: wofs_ls_summary_annual
+measurements:
+- name: count_wet
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: count_clear
+  dtype: int16
+  units: '1'
+  nodata: -999
+- name: frequency
+  dtype: float32
+  units: '1'
+  nodata: NaN
+storage:
+  crs: EPSG:6933
+  resolution:
+    x: 30
+    y: -30
+...

@@ -1,0 +1,388 @@
+---
+# Metadata Type eo
+# url: https://explorer.digitalearth.africa/metadata-types/eo.odc-type.yaml
+name: eo
+description: "Earth Observation datasets.\n\nExpected metadata structure produced\
+  \ by the eodatasets library, as used internally at GA.\n\nhttps://github.com/GeoscienceAustralia/eo-datasets\n"
+dataset:
+  id:
+  - id
+  label:
+  - ga_label
+  format:
+  - format
+  - name
+  sources:
+  - lineage
+  - source_datasets
+  creation_dt:
+  - creation_dt
+  grid_spatial:
+  - grid_spatial
+  - projection
+  measurements:
+  - image
+  - bands
+  search_fields:
+    lat:
+      type: double-range
+      max_offset:
+      - - extent
+        - coord
+        - ur
+        - lat
+      - - extent
+        - coord
+        - lr
+        - lat
+      - - extent
+        - coord
+        - ul
+        - lat
+      - - extent
+        - coord
+        - ll
+        - lat
+      min_offset:
+      - - extent
+        - coord
+        - ur
+        - lat
+      - - extent
+        - coord
+        - lr
+        - lat
+      - - extent
+        - coord
+        - ul
+        - lat
+      - - extent
+        - coord
+        - ll
+        - lat
+      description: Latitude range
+    lon:
+      type: double-range
+      max_offset:
+      - - extent
+        - coord
+        - ul
+        - lon
+      - - extent
+        - coord
+        - ur
+        - lon
+      - - extent
+        - coord
+        - ll
+        - lon
+      - - extent
+        - coord
+        - lr
+        - lon
+      min_offset:
+      - - extent
+        - coord
+        - ul
+        - lon
+      - - extent
+        - coord
+        - ur
+        - lon
+      - - extent
+        - coord
+        - ll
+        - lon
+      - - extent
+        - coord
+        - lr
+        - lon
+      description: Longitude range
+    time:
+      type: datetime-range
+      max_offset:
+      - - extent
+        - to_dt
+      - - extent
+        - center_dt
+      min_offset:
+      - - extent
+        - from_dt
+      - - extent
+        - center_dt
+      description: Acquisition time
+    platform:
+      offset:
+      - platform
+      - code
+      description: Platform code
+    instrument:
+      offset:
+      - instrument
+      - name
+      description: Instrument name
+    product_type:
+      offset:
+      - product_type
+      description: Product code
+...
+---
+# Metadata Type eo3
+# url: https://explorer.digitalearth.africa/metadata-types/eo3.odc-type.yaml
+name: eo3
+description: EO for DE Africa
+dataset:
+  id:
+  - id
+  label:
+  - properties
+  - odc:label
+  format:
+  - properties
+  - odc:file_format
+  sources:
+  - lineage
+  - source_datasets
+  creation_dt:
+  - properties
+  - odc:processing_datetime
+  grid_spatial:
+  - grid_spatial
+  - projection
+  measurements:
+  - measurements
+  search_fields:
+    lat:
+      type: double-range
+      max_offset:
+      - - extent
+        - lat
+        - end
+      min_offset:
+      - - extent
+        - lat
+        - begin
+      description: Latitude range
+    lon:
+      type: double-range
+      max_offset:
+      - - extent
+        - lon
+        - end
+      min_offset:
+      - - extent
+        - lon
+        - begin
+      description: Longitude range
+    rmse:
+      type: double
+      offset:
+      - properties
+      - landsat:rmse
+      indexed: false
+      description: Landsat root mean square error
+    time:
+      type: datetime-range
+      max_offset:
+      - - properties
+        - dtr:end_datetime
+      - - properties
+        - datetime
+      min_offset:
+      - - properties
+        - dtr:start_datetime
+      - - properties
+        - datetime
+      description: Acquisition time range
+    eo_gsd:
+      type: double
+      offset:
+      - properties
+      - eo:gsd
+      indexed: false
+      description: The ground sample distance
+    region:
+      offset:
+      - properties
+      - region
+      indexed: false
+      description: African regional area
+    rmse_x:
+      type: double
+      offset:
+      - properties
+      - landsat:rmse_x
+      indexed: false
+      description: Landsat root mean square error in X
+    rmse_y:
+      type: double
+      offset:
+      - properties
+      - landsat:rmse_y
+      indexed: false
+      description: Landsat root mean square error in Y
+    crs_raw:
+      offset:
+      - properties
+      - crs
+      indexed: false
+      description: Coordinate reference system field
+    platform:
+      offset:
+      - properties
+      - eo:platform
+      description: Platform code
+    instrument:
+      offset:
+      - properties
+      - eo:instrument
+      description: Instrument name
+    cloud_cover:
+      type: double
+      offset:
+      - properties
+      - eo:cloud_cover
+      description: Cloud cover percentage [0, 100]
+    region_code:
+      offset:
+      - properties
+      - odc:region_code
+      description: "Spatial reference code from the provider. For Landsat region_code\
+        \ is a scene path row '{:03d}{:03d}.format(path,row)'. For Sentinel it is\
+        \ MGRS code. In general it is a unique string identifier that datasets covering\
+        \ roughly the same spatial region share.\n"
+    data_coverage:
+      type: double
+      offset:
+      - properties
+      - sentinel:data_coverage
+      indexed: false
+      description: How much data is in the scene
+    eo_sun_azimuth:
+      type: double
+      offset:
+      - properties
+      - eo:sun_azimuth
+      indexed: false
+      description: Sun azimuth
+    product_family:
+      offset:
+      - properties
+      - odc:product_family
+      description: Product family code
+    dataset_version:
+      offset:
+      - properties
+      - odc:dataset_version
+      indexed: false
+      description: Derived product version number
+    sat_orbit_state:
+      offset:
+      - properties
+      - sat:orbit_state
+      indexed: false
+      description: The satellite orbit state, either ascending or descending
+    eo_sun_elevation:
+      type: double
+      offset:
+      - properties
+      - eo:sun_elevation
+      indexed: false
+      description: Sun elevation
+    sat_relative_orbit:
+      type: integer
+      offset:
+      - properties
+      - sat:relative_orbit
+      indexed: false
+      description: The satellite relative orbit
+    collection_category:
+      offset:
+      - properties
+      - landsat:collection_category
+      indexed: false
+      description: Landsat collection category, such as T1 or T2
+...
+---
+# Metadata Type telemetry
+# url: https://explorer.digitalearth.africa/metadata-types/telemetry.odc-type.yaml
+name: telemetry
+description: "Satellite telemetry datasets.\n\nExpected metadata structure produced\
+  \ by telemetry datasets from the eodatasets library, as used internally at GA.\n\
+  \nhttps://github.com/GeoscienceAustralia/eo-datasets\n"
+dataset:
+  id:
+  - id
+  label:
+  - ga_label
+  sources:
+  - lineage
+  - source_datasets
+  creation_dt:
+  - creation_dt
+  search_fields:
+    gsi:
+      offset:
+      - acquisition
+      - groundstation
+      - code
+      indexed: false
+      description: Ground Station Identifier (eg. ASA)
+    time:
+      type: datetime-range
+      max_offset:
+      - - acquisition
+        - los
+      min_offset:
+      - - acquisition
+        - aos
+      description: Acquisition time
+    orbit:
+      type: integer
+      offset:
+      - acquisition
+      - platform_orbit
+      description: Orbit number
+    sat_row:
+      type: integer-range
+      max_offset:
+      - - image
+        - satellite_ref_point_end
+        - y
+      - - image
+        - satellite_ref_point_start
+        - y
+      min_offset:
+      - - image
+        - satellite_ref_point_start
+        - y
+      description: Landsat row
+    platform:
+      offset:
+      - platform
+      - code
+      description: Platform code
+    sat_path:
+      type: integer-range
+      max_offset:
+      - - image
+        - satellite_ref_point_end
+        - x
+      - - image
+        - satellite_ref_point_start
+        - x
+      min_offset:
+      - - image
+        - satellite_ref_point_start
+        - x
+      description: Landsat path
+    instrument:
+      offset:
+      - instrument
+      - name
+      description: Instrument name
+    product_type:
+      offset:
+      - product_type
+      description: Product code
+...
